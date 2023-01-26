@@ -1,5 +1,7 @@
 package ru.ivashkevich.well_constructor.model;
 
+import jakarta.persistence.*;
+
 public enum PavementType {
     ROAD ("дорога", 0),
     SIDEWALK("тротуар", 0),
