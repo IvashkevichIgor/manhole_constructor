@@ -1,8 +1,8 @@
-package ru.ivashkevich.well_constructor.dao;
+package ru.ivashkevich.manhole_constructor.dao;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
-import ru.ivashkevich.well_constructor.model.PavementType;
+import ru.ivashkevich.manhole_constructor.model.PavementType;
 
 import java.util.stream.Stream;
 

@@ -1,4 +1,4 @@
-package ru.ivashkevich.well_constructor.model;
+package ru.ivashkevich.manhole_constructor.model;
 
 public enum ReinforcedConcreteElement {
     KS7_3("КС7.3", 0.7, 0.3),

@@ -1,13 +1,13 @@
-package ru.ivashkevich.well_constructor;
+package ru.ivashkevich.manhole_constructor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WellConstructorApplication {
+public class ManholeConstructorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WellConstructorApplication.class, args);
+        SpringApplication.run(ManholeConstructorApplication.class, args);
     }
 
 }

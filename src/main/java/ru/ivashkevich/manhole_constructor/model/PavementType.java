@@ -1,6 +1,4 @@
-package ru.ivashkevich.well_constructor.model;
-
-import jakarta.persistence.*;
+package ru.ivashkevich.manhole_constructor.model;
 
 public enum PavementType {
     ROAD ("дорога", 0),
