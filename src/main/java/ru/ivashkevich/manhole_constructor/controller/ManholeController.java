@@ -11,7 +11,7 @@ import ru.ivashkevich.manhole_constructor.service.ManholeService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/wells")
+@RequestMapping("/manholes")
 @RequiredArgsConstructor
 public class ManholeController {
 
