@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.ivashkevich</groupId>
-    <artifactId>well_constructor</artifactId>
+    <artifactId>manhole_constructor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>well_constructor</name>
-    <description>well_constructor</description>
+    <name>manhole_constructor</name>
+    <description>manhole_constructor</description>
     <properties>
         <java.version>17</java.version>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
