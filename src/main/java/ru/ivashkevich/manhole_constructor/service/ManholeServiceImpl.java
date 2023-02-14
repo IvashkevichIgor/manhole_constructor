@@ -22,7 +22,7 @@ public class ManholeServiceImpl implements ManholeService {
     public Manhole getManholeById(String id) {
         ManholeEntity entity = manholeRepository.findById(id)
                 .orElseThrow(() -> new ManholeNotFoundException("Manhole not found: id = " + id));
-        return mapper.manholeEntityToManhole(entity);
+        return mapper.entityToManhole(entity);
     }
 
     @Override
@@ -31,13 +31,13 @@ public class ManholeServiceImpl implements ManholeService {
 
         List<Manhole> manholeList = new ArrayList<>();
         for (ManholeEntity manholeEntity : manholeEntities) {
-            manholeList.add(mapper.manholeEntityToManhole(manholeEntity));
+            manholeList.add(mapper.entityToManhole(manholeEntity));
         }
         return manholeList;
     }
 
     @Override
     public void addManhole(Manhole manhole) {
-        manholeRepository.save(mapper.manholeToManholeEntity(manhole));
+        manholeRepository.save(mapper.manholeToEntity(manhole));
     }
 }
