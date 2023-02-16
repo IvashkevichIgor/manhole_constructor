@@ -1,12 +1,10 @@
 package ru.ivashkevich.manhole_constructor.dao;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.*;
-import org.hibernate.Hibernate;
 import ru.ivashkevich.manhole_constructor.model.PavementType;
-
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -20,21 +18,40 @@ public abstract class ManholeEntity {
 
     @Id
     private String number;
+    @Column(name = "outlet_tray_depth")
     private double outletTrayDepth;
+    @Column(name = "pavement_type")
     private PavementType pavementType;
+    @Column(name = "manhole_diameter")
     private double manholeDiameter;
-    private double pipeDiameter;
+    @Column(name = "pipe_diameter")
+    private int pipeDiameter;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
+
         ManholeEntity that = (ManholeEntity) o;
-        return number != null && Objects.equals(number, that.number);
+
+        if (Double.compare(that.outletTrayDepth, outletTrayDepth) != 0) return false;
+        if (Double.compare(that.manholeDiameter, manholeDiameter) != 0) return false;
+        if (pipeDiameter != that.pipeDiameter) return false;
+        if (!number.equals(that.number)) return false;
+        return pavementType == that.pavementType;
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        int result;
+        long temp;
+        result = number.hashCode();
+        temp = Double.doubleToLongBits(outletTrayDepth);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + pavementType.hashCode();
+        temp = Double.doubleToLongBits(manholeDiameter);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + pipeDiameter;
+        return result;
     }
 }
