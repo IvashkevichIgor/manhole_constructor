@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ManholeService {
 
-    Manhole getManholeById(String id);
+    Manhole getManholeById(long id);
 
     List<Manhole> getAllManholes();
 

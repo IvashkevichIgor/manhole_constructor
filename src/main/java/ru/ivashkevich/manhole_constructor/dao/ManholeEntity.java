@@ -1,8 +1,6 @@
 package ru.ivashkevich.manhole_constructor.dao;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.*;
 import ru.ivashkevich.manhole_constructor.model.PavementType;
 
@@ -17,6 +15,10 @@ public abstract class ManholeEntity {
     private static double minWorkChamberHeight;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "number")
     private String number;
     @Column(name = "outlet_tray_depth")
     private double outletTrayDepth;

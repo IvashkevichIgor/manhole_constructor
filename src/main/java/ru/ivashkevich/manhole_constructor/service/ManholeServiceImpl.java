@@ -1,6 +1,5 @@
 package ru.ivashkevich.manhole_constructor.service;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.ivashkevich.manhole_constructor.dao.ManholeEntity;
 import ru.ivashkevich.manhole_constructor.dao.ManholeRepository;
@@ -12,14 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class ManholeServiceImpl implements ManholeService {
 
     private final ManholeRepository manholeRepository;
     private final ManholeToEntityMapper mapper;
 
     @Override
-    public Manhole getManholeById(String id) {
+    public Manhole getManholeById(long id) {
         ManholeEntity entity = manholeRepository.findById(id)
                 .orElseThrow(() -> new ManholeNotFoundException("Manhole not found: id = " + id));
         return mapper.entityToManhole(entity);
@@ -39,5 +37,10 @@ public class ManholeServiceImpl implements ManholeService {
     @Override
     public void addManhole(Manhole manhole) {
         manholeRepository.save(mapper.manholeToEntity(manhole));
+    }
+
+    public ManholeServiceImpl(ManholeRepository manholeRepository, ManholeToEntityMapper mapper) {
+        this.manholeRepository = manholeRepository;
+        this.mapper = mapper;
     }
 }
